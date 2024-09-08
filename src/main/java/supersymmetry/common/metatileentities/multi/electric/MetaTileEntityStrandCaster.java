@@ -54,13 +54,13 @@ public class MetaTileEntityStrandCaster extends RecipeMapMultiblockController {
     protected BlockPattern createStructurePattern() {
         return FactoryBlockPattern.start()
                 .aisle("F   ++PFPFPFPFs", "F   ++G G G G G", "FCCCFF         ", "FCCCF          ", " CCC           ")
-                .aisle("      PSPSPSPSs", "      R R R R +", "CCCCPP         ", "CC#CC          ", "C###C          ")
-                .aisle("      PSPSPSPSs", "  CCCCR R R R +", "CC##II         ", "C###C          ", "C###C          ")
-                .aisle("      PSPSPSPSs", "      R R R R +", "CCCCPP         ", "CC#CC          ", "C###C          ")
+                .aisle("      PSPSPSPSo", "      R R R R O", "CCCCPP         ", "CC#CC          ", "C###C          ")
+                .aisle("      PSPSPSPSo", "  CCCCR R R R O", "CC##II         ", "C###C          ", "C###C          ")
+                .aisle("      PSPSPSPSo", "      R R R R O", "CCCCPP         ", "CC#CC          ", "C###C          ")
                 .aisle("F   FFPFPFPFPFs", "F   FFG G G G G", "FCXCFF         ", "FCCCF          ", " CCC           ")
                 .where('X', selfPredicate())
                 //.where('H', states(UniqueCasingType.HEAT_VENT.get()))
-                .where('C', states(MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.INVAR_HEATPROOF)).setMinGlobalLimited(49))
+                .where('C', states(MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.INVAR_HEATPROOF)))
                 .where('P', states(MetaBlocks.BOILER_CASING.getState(BlockBoilerCasing.BoilerCasingType.STEEL_PIPE)))
                 .where('G', states(MetaBlocks.TURBINE_CASING.getState(BlockTurbineCasing.TurbineCasingType.STEEL_GEARBOX)))
                 .where('s', states(MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.STEEL_SOLID)))
@@ -70,8 +70,13 @@ public class MetaTileEntityStrandCaster extends RecipeMapMultiblockController {
                 .where('I', frames(Materials.Invar))
                 .where('#', air())
                 .where(' ', any())
-                .where('+', frames(Materials.Steel)
-                    .or(autoAbilities(true, true, true, true, true, true, false)))
+                .where('O', frames(Materials.Steel)
+                    .or(autoAbilities(false, false, false, true, false, false, false)))
+                .where('o', states(MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.STEEL_SOLID))
+                    .or(autoAbilities(false, false, false, false, false, true, false)))
+                .where('+',frames(Materials.Steel)
+                        .or(autoAbilities(true, true, false, false, true, false, false)))
+
                 .build();
     }
 /*
