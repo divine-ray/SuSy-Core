@@ -145,6 +145,7 @@ public class SuSyMetaTileEntities {
     public static SimpleMachineMetaTileEntity[] ELECTROSTATIC_SEPARATOR;
     public static SimpleMachineMetaTileEntity[] TEXTILE_SPINNER;
     public static SimpleMachineMetaTileEntity[] POLISHING_MACHINE;
+    public static MetaTileEntityStrandCaster STRAND_CASTER;
 
     public static void init() {
         MAGNETIC_REFRIGERATOR = registerMetaTileEntity(14500, new MetaTileEntityMagneticRefrigerator(susyId("magnetic_refrigerator")));
@@ -262,6 +263,8 @@ public class SuSyMetaTileEntities {
 
         PHASE_SEPARATOR[0] = registerMetaTileEntity(17018, new MetaTileEntityPhaseSeparator(susyId("phase_separator")));
         BATH_CONDENSER[0] = registerMetaTileEntity(17019, new MetaTileEntityBathCondenser(susyId("bath_condenser")));
+
+        STRAND_CASTER = registerMetaTileEntity(17100, new MetaTileEntityStrandCaster(susyId("strand_caster")));
 
         registerSimpleMTE(ELECTROSTATIC_SEPARATOR, 12, 17035, "electrostatic_separator", SuSyRecipeMaps.ELECTROSTATIC_SEPARATOR, SusyTextures.ELECTROSTATIC_SEPARATOR_OVERLAY, true, GTUtility.defaultTankSizeFunction);
         registerSimpleMTE(POLISHING_MACHINE, 12, 17048, "polishing_machine", SuSyRecipeMaps.POLISHING_MACHINE, SusyTextures.POLISHING_MACHINE_OVERLAY, true, GTUtility.defaultTankSizeFunction);

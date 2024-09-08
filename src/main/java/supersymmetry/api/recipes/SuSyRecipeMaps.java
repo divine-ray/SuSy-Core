@@ -229,10 +229,9 @@ public class SuSyRecipeMaps {
             .setSlotOverlay(true, true, true, SusyGuiTextures.SIFTER_FLUID_OVERLAY)
             .setSound(GTSoundEvents.MACERATOR);
 
-    public static final RecipeMap<SimpleRecipeBuilder> REACTION_FURNACE_RECIPES = new RecipeMap<>("reaction_furnace", 3, 3, 3, 3, new SimpleRecipeBuilder(), false)
+    public static final RecipeMap<SimpleRecipeBuilder>  REACTION_FURNACE_RECIPES = new RecipeMap<>("reaction_furnace", 3, 3, 3, 3, new SimpleRecipeBuilder(), false)
             .setProgressBar(GuiTextures.PROGRESS_BAR_ARC_FURNACE, ProgressWidget.MoveType.HORIZONTAL)
             .setSound(GTSoundEvents.ARC);
-
     public static final RecipeMap<SimpleRecipeBuilder> PRESSURE_SWING_ADSORBER_RECIPES = new RecipeMap<>("pressure_swing_adsorption", 1, 1, 2, 2, new SimpleRecipeBuilder(), false)
             .setProgressBar(GuiTextures.PROGRESS_BAR_SIFT, ProgressWidget.MoveType.VERTICAL)
             .setSound(GTSoundEvents.COMPRESSOR);
@@ -298,6 +297,10 @@ public class SuSyRecipeMaps {
     public static final RecipeMap<BathCondenserRecipeBuilder> BATH_CONDENSER = new RecipeMap<>("bath_condenser", 0, 0, 2, 3, new BathCondenserRecipeBuilder(), false)
             .setProgressBar(GuiTextures.PROGRESS_BAR_SIFT, ProgressWidget.MoveType.VERTICAL)
             .setSound(GTSoundEvents.BATH);
+
+    public static final RecipeMap<SimpleRecipeBuilder> STRAND_CASTING = new RecipeMap<>("strand_casting", 1, 1, 2, 1, new SimpleRecipeBuilder(), false)
+            .setProgressBar(GuiTextures.PROGRESS_BAR_ARROW_MULTIPLE, ProgressWidget.MoveType.HORIZONTAL)
+            .setSound(GTSoundEvents.COOLING);
 
     public static final RecipeMap<DronePadRecipeBuilder> DRONE_PAD = new RecipeMap<>("drone_pad", 4, 9, 0, 0, new DronePadRecipeBuilder(), false);
 
