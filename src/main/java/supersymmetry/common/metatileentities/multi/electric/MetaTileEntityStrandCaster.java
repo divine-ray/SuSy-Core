@@ -6,6 +6,7 @@ import gregicality.multiblocks.common.metatileentities.GCYMMetaTileEntities;
 import gregtech.api.capability.IMufflerHatch;
 import gregtech.api.metatileentity.MetaTileEntity;
 import gregtech.api.metatileentity.interfaces.IGregTechTileEntity;
+import gregtech.api.metatileentity.multiblock.IMultiblockAbilityPart;
 import gregtech.api.metatileentity.multiblock.IMultiblockPart;
 import gregtech.api.metatileentity.multiblock.MultiblockAbility;
 import gregtech.api.metatileentity.multiblock.RecipeMapMultiblockController;
@@ -70,7 +71,7 @@ public class MetaTileEntityStrandCaster extends RecipeMapMultiblockController {
                 .where('G', states(MetaBlocks.TURBINE_CASING.getState(BlockTurbineCasing.TurbineCasingType.STEEL_GEARBOX)))
                 .where('s', states(MetaBlocks.METAL_CASING.getState(BlockMetalCasing.MetalCasingType.STEEL_SOLID)))
                 .where('S', states(SuSyMetaBlocks.SHEETED_FRAMES.get(Materials.Steel).getDefaultState().withProperty(BlockSheetedFrame.SHEETED_FRAME_AXIS, BlockSheetedFrame.FrameEnumAxis.fromFacingAxis(RelativeDirection.FRONT.getRelativeFacing(getFrontFacing(), getUpwardsFacing(), isFlipped()).getAxis()))))
-                .where('R', states(SuSyMetaBlocks.SHEETED_FRAMES.get(Materials.Iron).getDefaultState().withProperty(BlockSheetedFrame.SHEETED_FRAME_AXIS, BlockSheetedFrame.FrameEnumAxis.fromFacingAxis(RelativeDirection.FRONT.getRelativeFacing(getFrontFacing(), getUpwardsFacing(), isFlipped()).getAxis()))))
+                .where('R', states(SuSyMetaBlocks.SHEETED_FRAMES.get(Materials.Invar).getDefaultState().withProperty(BlockSheetedFrame.SHEETED_FRAME_AXIS, BlockSheetedFrame.FrameEnumAxis.fromFacingAxis(RelativeDirection.FRONT.getRelativeFacing(getFrontFacing(), getUpwardsFacing(), isFlipped()).getAxis()))))
                 .where('F', frames(Materials.Steel))
                 .where('I', frames(Materials.Invar))
                 .where('#', air())
@@ -86,8 +87,8 @@ public class MetaTileEntityStrandCaster extends RecipeMapMultiblockController {
     }
     @Override
     public ICubeRenderer getBaseTexture(IMultiblockPart iMultiblockPart) {
-        return iMultiblockPart instanceof  ? Textures.SOLID_STEEL_CASING:
-                Textures.HEAT_PROOF_CASING;
+        return  Textures.HEAT_PROOF_CASING;
+                // iMultiblockPart instanceof IMultiblockAbilityPart<?> && getAbilities() = MultiblockAbility.IMPORT_FLUIDS ? Textures.SOLID_STEEL_CASING:
     }
 
     @Nonnull
